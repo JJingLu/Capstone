@@ -1,6 +1,7 @@
 import 'package:aiescapstone/ChatbotPage.dart';
 import 'package:flutter/material.dart';
 import 'QuestionCells.dart';
+import "SurveyResultUploader.dart";
 
 List<Question> questions = [
   Question(
@@ -150,6 +151,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                           if (questions
                               .every((question) => question.selectValue != 0))
                             {
+                              saveAnswersToFirebase(questions), // 调用保存回答到Firebase的方法
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(

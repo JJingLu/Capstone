@@ -4,11 +4,16 @@ import 'package:aiescapstone/SingleValueSliderController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'QuestionCells.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+ await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+);
+  runApp(MyApp());
 }
-
 
 class TermsAndConditionSubParagraph extends StatelessWidget {
   const TermsAndConditionSubParagraph({super.key, required this.title, required this.content});
