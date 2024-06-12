@@ -1,11 +1,14 @@
+import 'package:aiescapstone/QuestionCells.dart';
 import 'package:aiescapstone/Questionnaire.dart';
 import 'package:aiescapstone/SingleValueSliderController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
+import 'QuestionCells.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
 
 class TermsAndConditionSubParagraph extends StatelessWidget {
   const TermsAndConditionSubParagraph({super.key, required this.title, required this.content});
@@ -57,6 +60,7 @@ class TermsPage extends StatelessWidget {
                 textAlign: TextAlign.left,
               )),
           SizedBox(height: 40),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work"),
           Container(
               margin: const EdgeInsets.fromLTRB(5, 5, 5, 5),
               padding: const EdgeInsets.all(7),

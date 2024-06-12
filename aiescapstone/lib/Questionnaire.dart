@@ -1,5 +1,6 @@
 import 'package:aiescapstone/ChatbotPage.dart';
 import 'package:flutter/material.dart';
+import 'QuestionCells.dart';
 
 class QuestionnairePage extends StatelessWidget {
   @override
@@ -16,51 +17,6 @@ class QuestionnairePage extends StatelessWidget {
         ),
         backgroundColor: Colors.black87,
         body: QuestionnaireContents());
-  }
-}
-
-class QuestionCell extends StatelessWidget {
-  const QuestionCell({super.key, required this.title, required this.content});
-  final String title;
-  final String content;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-        margin: const EdgeInsets.fromLTRB(5, 5, 5, 5),
-        padding: const EdgeInsets.all(7),
-        decoration: BoxDecoration(
-            color: Colors.grey.withAlpha(30),
-            border: Border.all(
-              color: Colors.grey.withAlpha(25),
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(20)),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withAlpha(120),
-                spreadRadius: 5,
-                blurRadius: 27,
-                offset: Offset(0, 3), // changes position of shadow
-              ),
-            ]),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
-          Container(
-            padding: EdgeInsets.fromLTRB(8, 4, 8, 4),
-            child: Text(
-              title,
-              style: const TextStyle(color: Colors.white, fontSize: 20),
-              textAlign: TextAlign.left,
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.fromLTRB(18, 4, 8, 4),
-            child: Text(
-              content,
-              style: const TextStyle(color: Colors.white, fontSize: 14),
-              textAlign: TextAlign.left,
-            ),
-          ),
-        ]));
   }
 }
 
