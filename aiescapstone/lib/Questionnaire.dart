@@ -42,25 +42,33 @@ class QuestionnaireContents extends StatelessWidget {
                 textAlign: TextAlign.left,
               )),
           Column(children: [
-            const QuestionCell(
-                title: "1.条款小标题",
-                content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
-            const QuestionCell(
-                title: "2.条款小标题",
-                content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
-            const QuestionCell(
-                title: "3.条款小标题",
-                content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
-            const QuestionCell(
-                title: "4.条款小标题",
-                content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
-            const QuestionCell(
-                title: "4.条款小标题",
-                content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
-            const QuestionCell(
-                title: "4.条款小标题",
-                content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
-            const SizedBox(height: 30),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),SizedBox(height: 30),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

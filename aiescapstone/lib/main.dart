@@ -60,7 +60,9 @@ class TermsPage extends StatelessWidget {
                 textAlign: TextAlign.left,
               )),
           SizedBox(height: 40),
-          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work"),
+          QuestionCell(title: "Question1", content: "Women exaggerate problems they have at work",onChanged: (value) {
+            
+          },),
           Container(
               margin: const EdgeInsets.fromLTRB(5, 5, 5, 5),
               padding: const EdgeInsets.all(7),
