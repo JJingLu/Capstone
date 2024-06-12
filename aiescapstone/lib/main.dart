@@ -1,7 +1,191 @@
+import 'package:aiescapstone/Questionnaire.dart';
+import 'package:aiescapstone/SingleValueSliderController.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
+}
+
+class TermsAndConditionSubParagraph extends StatelessWidget {
+  const TermsAndConditionSubParagraph({super.key, required this.title, required this.content});
+  final String title;
+  final String content;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
+      Container(
+        padding: EdgeInsets.fromLTRB(8, 4, 8, 4),
+        child: Text(
+          title,
+          style: const TextStyle(color: Colors.white, fontSize: 20),
+          textAlign: TextAlign.left,
+        ),
+      ),
+      Container(
+        padding: EdgeInsets.fromLTRB(18, 4, 8, 4),
+        child: Text(
+          content,
+          style: const TextStyle(color: Colors.white, fontSize: 14),
+          textAlign: TextAlign.left,
+        ),
+      ),
+    ]);
+  }
+}
+
+class TermsPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Padding(
+              padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
+              child: const Text(
+                "✏️ My Misogyny Survey and Chatbot",
+                style: TextStyle(color: Colors.white, fontSize: 25),
+                textAlign: TextAlign.left,
+              )),
+          const Padding(
+              padding: EdgeInsets.all(18),
+              child: const Text(
+                "We sincerely invite you to participate in our survey. Before proceeding with the survey, please take a moment to read the following information to understand the purpose of the survey and how we protect your privacy.",
+                style: TextStyle(color: Colors.white, fontSize: 14),
+                textAlign: TextAlign.left,
+              )),
+          SizedBox(height: 40),
+          Container(
+              margin: const EdgeInsets.fromLTRB(5, 5, 5, 5),
+              padding: const EdgeInsets.all(7),
+              decoration: BoxDecoration(
+                  color: Colors.grey.withAlpha(30),
+                  border: Border.all(
+                    color: Colors.grey.withAlpha(25),
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withAlpha(120),
+                      spreadRadius: 5,
+                      blurRadius: 27,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ]),
+              child: Column(children: [
+                const Text(
+                  "霸王条款",
+                  style: const TextStyle(color: Colors.white, fontSize: 30),
+                  textAlign: TextAlign.left,
+                ),
+                const TermsAndConditionSubParagraph(
+                    title: "1.条款小标题",
+                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                const TermsAndConditionSubParagraph(
+                    title: "2.条款小标题",
+                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                const TermsAndConditionSubParagraph(
+                    title: "3.条款小标题",
+                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                const TermsAndConditionSubParagraph(
+                    title: "4.条款小标题",
+                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                const TermsAndConditionSubParagraph(
+                    title: "4.条款小标题",
+                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                const TermsAndConditionSubParagraph(
+                    title: "4.条款小标题",
+                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 150,
+                      height: 50,
+                      //在此设置
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(9),
+                        gradient: const LinearGradient(colors: [
+                          Color.fromARGB(190, 160, 160, 190),
+                          Color.fromARGB(190, 190, 160, 160),
+                        ]),
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () => {},
+                        style: ButtonStyle(
+                          //去除阴影
+                          elevation: MaterialStateProperty.all(0),
+                          //将按钮背景设置为透明
+                          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Icon(
+                              Icons.close,
+                              size: 40,
+                              color: Colors.red,
+                            ),
+                            const Text(
+                              'Decline',
+                              style: TextStyle(fontSize: 17, color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Container(
+                      width: 290,
+                      height: 50,
+                      //在此设置
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(9),
+                        gradient: const LinearGradient(colors: [
+                          Color(0xff30c1fd),
+                          Color(0xff846dfc),
+                          Color(0xffde53fc),
+                        ]),
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () => {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => QuestionnairePage()),
+                          )
+                        },
+                        style: ButtonStyle(
+                          //去除阴影
+                          elevation: MaterialStateProperty.all(0),
+                          //将按钮背景设置为透明
+                          backgroundColor: MaterialStateProperty.all(Colors.transparent),
+                        ),
+                        child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            const Text(
+                              'I have read and accept',
+                              style: TextStyle(fontSize: 17, color: Colors.white),
+                            ),
+                            const Icon(
+                              Icons.check,
+                              size: 40,
+                              color: Colors.green,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ])),
+        ],
+      ),
+    );
+  }
 }
 
 class MyApp extends StatelessWidget {
@@ -11,7 +195,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'My Survey',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -86,50 +270,16 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            MyWidget(),
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+        appBar: AppBar(
+          // TRY THIS: Try changing the color here to a specific color (to
+          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+          // change color while the other colors stay the same.
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: const Text("Misogyny Survey and Chatbot"),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+        backgroundColor: Colors.black87,
+        body: TermsPage());
   }
 }
