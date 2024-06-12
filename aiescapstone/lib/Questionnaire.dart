@@ -146,7 +146,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                         ]),
                       ),
                       child: ElevatedButton(
-                        onPressed: () => {  
+                        onPressed: () => {
                           if (questions
                               .every((question) => question.selectValue != 0))
                             {
@@ -163,16 +163,22 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                                 builder: (BuildContext context) {
                                   return AlertDialog(
                                     title: const Text('Reminder'),
-                                    content:  Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text('The following questions are not answered'),
-                const SizedBox(height: 8),
-                for (var question in questions)
-                  (question.selectValue == 0)?Text(question.title):const SizedBox(height: 0,),
-              ],
-            ),
+                                    content: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const Text(
+                                            'The following questions are not answered'),
+                                        const SizedBox(height: 8),
+                                        for (var question in questions)
+                                          (question.selectValue == 0)
+                                              ? Text(question.title)
+                                              : const SizedBox(
+                                                  height: 0,
+                                                ),
+                                      ],
+                                    ),
                                     actions: [
                                       TextButton(
                                         onPressed: () {
