@@ -18,11 +18,11 @@ class ChatbotWrapper {
         return (response.body);
       } else {
         // 请求失败
-        return ('Error: ${response.statusCode} - ${response.reasonPhrase}');
+        return ('Http Error: ${response.statusCode} - ${response.reasonPhrase}');
       }
     } catch (e) {
       // 处理其他错误
-      return ('Error: $e');
+      return ('Other Error: $e');
     }
   }
 }
