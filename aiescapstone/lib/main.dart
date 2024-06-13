@@ -7,19 +7,20 @@ import 'QuestionCells.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'ChatbotWrapper.dart';
+import 'ChatbotPage.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 // import 'package:http_client_helper/http_client_helper.dart';
 
 void main() async {
-  print(ChatbotWrapper.processText("what is gpt"));
-
+/*
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+*/
 
-  runApp(MyApp());
+  runApp(ChatbotTesterPage());
 }
 
 class TermsAndConditionSubParagraph extends StatelessWidget {
