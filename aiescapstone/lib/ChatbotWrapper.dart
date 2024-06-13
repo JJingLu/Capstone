@@ -3,19 +3,26 @@ import 'dart:convert';
 
 class ChatbotWrapper {
   static Future<String> processText(String inputText) async {
-    var url = "119.28.53.104:8000";
-    var data = {"role": "user", "content": inputText};
+    final url = Uri.parse('http://119.28.53.104:8000');
+    final data = {'message': 'Hello, server!'};
 
     try {
-      var response = await http.post(Uri.http(url, ''), body: jsonEncode(data));
+      final response = await http.post(
+        url,
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode(data),
+      );
 
       if (response.statusCode == 200) {
-        return response.body;
+        // 请求成功
+        return (response.body);
       } else {
-        throw Exception('Request failed with status: ${response.statusCode}');
+        // 请求失败
+        return ('Error: ${response.statusCode} - ${response.reasonPhrase}');
       }
-    } catch (error) {
-      return 'Error: $error';
+    } catch (e) {
+      // 处理其他错误
+      return ('Error: $e');
     }
   }
 }

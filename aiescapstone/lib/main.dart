@@ -8,40 +8,16 @@ import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'ChatbotWrapper.dart';
 import 'dart:convert';
-import 'package:http_io/http.dart' as http;
+import 'package:http/http.dart' as http;
 // import 'package:http_client_helper/http_client_helper.dart';
 
 void main() async {
-  var url = "http://119.28.53.104:8000";
-  var data = {"role": "user", "content": "what is cnn and transformer"};
-  var headers = {
-    'Content-Type': 'application/json',
-    'User-Agent': 'Dart HTTP Client',
-  };
-  //var response = await http.post(Uri.http(url, ''), body: jsonEncode(data));
-
-  //var response = await HttpClientHelper.post(Uri.http(url, ''), body: jsonEncode(data), timeRetry: const Duration(milliseconds: 100), retries: 3, timeLimit: const Duration(seconds: 5));
-
-  try {
-    var response = await http.post(url, headers: headers, body: jsonEncode(data));
-    if (response == null) {
-      print("http failed");
-    } else {
-      print(response!.body);
-    }
-  } catch (e) {
-    print(e);
-  }
+  print(ChatbotWrapper.processText("what is gpt"));
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-/*
-  var inputText = "what is the difference between cnn and transformer";
-  var outputText = await ChatbotWrapper.processText(inputText);
-  print(outputText);
-*/
 
   runApp(MyApp());
 }
