@@ -102,7 +102,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                   children: [
                     Container(
                       height: 50,
-                      width: 430,
+                      width: 400,
                       //在此设置
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(9),

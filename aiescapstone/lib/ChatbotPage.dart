@@ -14,14 +14,23 @@ class ChatbotPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatbotPage> {
-  TextEditingController _textEditingController = TextEditingController();
-  List<String> _chatMessages = [];
+  ScrollController _scrollController = ScrollController();
+
+  void _scrollToBottom() {
+    _scrollController.jumpTo(_scrollController.position.maxScrollExtent);
+  }
 
   @override
   void initState() {
     super.initState();
     processUserInput('Hello'); // 发送初始消息
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollToBottom();
+    });
   }
+
+  TextEditingController _textEditingController = TextEditingController();
+  List<String> _chatMessages = [];
 
   Future<void> processUserInput(String message) async {
     String response = await ChatbotWrapper.processText(message);
@@ -32,11 +41,15 @@ class _ChatPageState extends State<ChatbotPage> {
     _textEditingController.clear();
 
     setState(() {});
+
+    _scrollToBottom();
   }
+
+  final int totalChat = 10;
 
   @override
   Widget build(BuildContext context) {
-    if (_chatMessages.length >= 20) {
+    if (_chatMessages.length >= totalChat) {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -46,15 +59,17 @@ class _ChatPageState extends State<ChatbotPage> {
       );
     }
     return Scaffold(
+      backgroundColor: Colors.black87,
       appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text('Chat App'),
         actions: [
-          Text("Progress:" + _chatMessages.length.toString() + "/20"),
+          Text("Progress:" + _chatMessages.length.toString() + "/" + totalChat.toString()),
           SizedBox(
             width: 20,
           ),
           CircularProgressIndicator(
-            value: _chatMessages.length.toDouble() / 20.0,
+            value: _chatMessages.length.toDouble() / totalChat.toDouble(),
             backgroundColor: Colors.grey.withAlpha(240),
             valueColor: const AlwaysStoppedAnimation(Colors.blue),
             strokeWidth: 4,
@@ -68,10 +83,74 @@ class _ChatPageState extends State<ChatbotPage> {
         children: [
           Expanded(
             child: ListView.builder(
+              controller: _scrollController,
               itemCount: _chatMessages.length,
               itemBuilder: (context, index) {
+                if (_chatMessages[index].contains("Chatbot:")) {
+                  return ListTile(
+                      title: Row(children: [
+                    const Icon(
+                      Icons.android,
+                      color: Colors.green,
+                      size: 50,
+                    ),
+                    Container(
+                        constraints: BoxConstraints(
+                          maxWidth: 250.0, // 设置最大宽度为200.0
+                        ),
+                        //在此设置
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(9),
+                          gradient: const LinearGradient(colors: [
+                            Color(0xff30c1fd),
+                            Color(0xff846dfc),
+                            Color(0xffde53fc),
+                          ]),
+                        ),
+                        child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Text(
+                              _chatMessages[index].substring(8),
+                              style: TextStyle(color: Colors.white, fontSize: 18),
+                              textAlign: TextAlign.left,
+                            ))),
+                    Spacer(),
+                    SizedBox(
+                      width: 50,
+                    ),
+                  ]));
+                }
                 return ListTile(
-                  title: Text(_chatMessages[index]),
+                  title: Row(children: [
+                    Spacer(),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    Container(
+                        constraints: BoxConstraints(
+                          maxWidth: 250.0, // 设置最大宽度为200.0
+                        ),
+                        //在此设置
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(9),
+                          gradient: const LinearGradient(colors: [
+                            Color(0xffCCCCCC),
+                            Color(0x9999DDFF),
+                          ]),
+                        ),
+                        child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Text(
+                              _chatMessages[index].substring(5),
+                              style: TextStyle(color: Colors.white, fontSize: 18),
+                              textAlign: TextAlign.right,
+                            ))),
+                    const Icon(
+                      Icons.account_circle,
+                      color: Colors.white,
+                      size: 50,
+                    ),
+                  ]),
                 );
               },
             ),
@@ -82,12 +161,21 @@ class _ChatPageState extends State<ChatbotPage> {
               children: [
                 Expanded(
                   child: TextField(
+                    cursorColor: Colors.white,
                     controller: _textEditingController,
                     decoration: InputDecoration(hintText: 'Enter a message'),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                    ),
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.send),
+                  icon: Icon(
+                    Icons.send_rounded,
+                    size: 50,
+                    color: Colors.blue,
+                  ),
                   onPressed: () {
                     String message = _textEditingController.text;
                     processUserInput(message);

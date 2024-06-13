@@ -20,7 +20,7 @@ void main() async {
   );
 */
 
-  runApp(MyApp());
+  runApp(ChatbotTesterPage());
 }
 
 class TermsAndConditionSubParagraph extends StatelessWidget {
