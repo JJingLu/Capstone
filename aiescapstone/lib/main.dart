@@ -22,7 +22,7 @@ void main() async {
 
   ChatbotWrapper.initCORS();
 
-  runApp(ChatbotTesterPage());
+  runApp(MyApp());
 }
 
 class TermsAndConditionSubParagraph extends StatelessWidget {

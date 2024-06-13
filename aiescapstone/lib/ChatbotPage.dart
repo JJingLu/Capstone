@@ -39,10 +39,10 @@ class _ChatPageState extends State<ChatbotPage> {
 
     _chatMessages.add('Chatbot: $response');
 
-                      
-    setState(() {isWaiting = false;     _scrollToBottom();});
-
-
+    setState(() {
+      isWaiting = false;
+      _scrollToBottom();
+    });
   }
 
   final int totalChat = 10;
@@ -64,7 +64,10 @@ class _ChatPageState extends State<ChatbotPage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text('Chat App'),
         actions: [
-          Text("Progress:" + _chatMessages.length.toString() + "/" + totalChat.toString()),
+          Text("Progress:" +
+              _chatMessages.length.toString() +
+              "/" +
+              totalChat.toString()),
           SizedBox(
             width: 20,
           ),
@@ -111,7 +114,8 @@ class _ChatPageState extends State<ChatbotPage> {
                             padding: EdgeInsets.all(8),
                             child: Text(
                               _chatMessages[index].substring(8),
-                              style: TextStyle(color: Colors.white, fontSize: 18),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18),
                               textAlign: TextAlign.left,
                             ))),
                     Spacer(),
@@ -142,7 +146,8 @@ class _ChatPageState extends State<ChatbotPage> {
                             padding: EdgeInsets.all(8),
                             child: Text(
                               _chatMessages[index].substring(5),
-                              style: TextStyle(color: Colors.white, fontSize: 18),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18),
                               textAlign: TextAlign.right,
                             ))),
                     const Icon(
@@ -163,32 +168,39 @@ class _ChatPageState extends State<ChatbotPage> {
                   child: TextField(
                     cursorColor: Colors.white,
                     controller: _textEditingController,
-                    decoration: InputDecoration(hintText: 'Enter a message',hintStyle: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 18.0,
-                    )),
+                    decoration: InputDecoration(
+                        hintText: 'Enter a message',
+                        hintStyle: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 18.0,
+                        )),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
                     ),
                   ),
                 ),
-                (isWaiting)?(CircularProgressIndicator(color: Colors.purple, backgroundColor: Colors.white,)):(IconButton(
-                  icon: Icon(
-                    Icons.send_rounded,
-                    size: 50,
-                    color: Colors.blue,
-                  ),
-                  onPressed: () {
-                    String message = _textEditingController.text;
-                    setState(() {
-                      isWaiting = true;
-                     _chatMessages.add('User: $message');
-    _textEditingController.clear(); 
-                    });
-                    processUserInput(message);
-                  },
-                )),
+                (isWaiting)
+                    ? (CircularProgressIndicator(
+                        color: Colors.purple,
+                        backgroundColor: Colors.white,
+                      ))
+                    : (IconButton(
+                        icon: Icon(
+                          Icons.send_rounded,
+                          size: 50,
+                          color: Colors.blue,
+                        ),
+                        onPressed: () {
+                          String message = _textEditingController.text;
+                          setState(() {
+                            isWaiting = true;
+                            _chatMessages.add('User: $message');
+                            _textEditingController.clear();
+                          });
+                          processUserInput(message);
+                        },
+                      )),
               ],
             ),
           ),
