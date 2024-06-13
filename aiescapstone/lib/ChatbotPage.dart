@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'ChatbotWrapper.dart';
 import 'Questionnaire.dart';
@@ -31,18 +32,17 @@ class _ChatPageState extends State<ChatbotPage> {
 
   TextEditingController _textEditingController = TextEditingController();
   List<String> _chatMessages = [];
+  bool isWaiting = false;
 
   Future<void> processUserInput(String message) async {
     String response = await ChatbotWrapper.processText(message);
 
-    _chatMessages.add('User: $message');
     _chatMessages.add('Chatbot: $response');
 
-    _textEditingController.clear();
+                      
+    setState(() {isWaiting = false;     _scrollToBottom();});
 
-    setState(() {});
 
-    _scrollToBottom();
   }
 
   final int totalChat = 10;
@@ -163,14 +163,17 @@ class _ChatPageState extends State<ChatbotPage> {
                   child: TextField(
                     cursorColor: Colors.white,
                     controller: _textEditingController,
-                    decoration: InputDecoration(hintText: 'Enter a message'),
+                    decoration: InputDecoration(hintText: 'Enter a message',hintStyle: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 18.0,
+                    )),
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 18.0,
                     ),
                   ),
                 ),
-                IconButton(
+                (isWaiting)?(CircularProgressIndicator(color: Colors.purple, backgroundColor: Colors.white,)):(IconButton(
                   icon: Icon(
                     Icons.send_rounded,
                     size: 50,
@@ -178,9 +181,14 @@ class _ChatPageState extends State<ChatbotPage> {
                   ),
                   onPressed: () {
                     String message = _textEditingController.text;
+                    setState(() {
+                      isWaiting = true;
+                     _chatMessages.add('User: $message');
+    _textEditingController.clear(); 
+                    });
                     processUserInput(message);
                   },
-                ),
+                )),
               ],
             ),
           ),

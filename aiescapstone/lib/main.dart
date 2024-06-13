@@ -20,6 +20,8 @@ void main() async {
   );
 */
 
+  ChatbotWrapper.initCORS();
+
   runApp(ChatbotTesterPage());
 }
 
