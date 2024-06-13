@@ -20,7 +20,7 @@ void main() async {
   );
 */
 
-  runApp(ChatbotTesterPage());
+  runApp(MyApp());
 }
 
 class TermsAndConditionSubParagraph extends StatelessWidget {
@@ -61,7 +61,7 @@ class TermsPage extends StatelessWidget {
           const Padding(
               padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
               child: const Text(
-                "✏️ My Misogyny Survey and Chatbot",
+                "✏️ Participant Information Sheet",
                 style: TextStyle(color: Colors.white, fontSize: 25),
                 textAlign: TextAlign.left,
               )),
@@ -91,11 +91,6 @@ class TermsPage extends StatelessWidget {
                     ),
                   ]),
               child: Column(children: [
-                const Text(
-                  "霸王条款",
-                  style: const TextStyle(color: Colors.white, fontSize: 30),
-                  textAlign: TextAlign.left,
-                ),
                 const TermsAndConditionSubParagraph(
                     title: "1.条款小标题",
                     content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
@@ -170,7 +165,10 @@ class TermsPage extends StatelessWidget {
                         onPressed: () => {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => QuestionnairePage()),
+                            MaterialPageRoute(
+                                builder: (context) => QuestionnairePage(
+                                      afterChatbot: false,
+                                    )),
                           )
                         },
                         style: ButtonStyle(

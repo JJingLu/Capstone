@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'ChatbotWrapper.dart';
+import 'Questionnaire.dart';
 
 /*
   (ChatbotWrapper.processText("what is gpt, introduce it")).then((r) {
@@ -35,9 +36,33 @@ class _ChatPageState extends State<ChatbotPage> {
 
   @override
   Widget build(BuildContext context) {
+    if (_chatMessages.length >= 20) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => QuestionnairePage(
+                  afterChatbot: true,
+                )),
+      );
+    }
     return Scaffold(
       appBar: AppBar(
         title: Text('Chat App'),
+        actions: [
+          Text("Progress:" + _chatMessages.length.toString() + "/20"),
+          SizedBox(
+            width: 20,
+          ),
+          CircularProgressIndicator(
+            value: _chatMessages.length.toDouble() / 20.0,
+            backgroundColor: Colors.grey.withAlpha(240),
+            valueColor: const AlwaysStoppedAnimation(Colors.blue),
+            strokeWidth: 4,
+          ),
+          SizedBox(
+            width: 10,
+          )
+        ],
       ),
       body: Column(
         children: [
