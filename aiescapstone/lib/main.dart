@@ -56,7 +56,8 @@ class TermsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Padding(
               padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
@@ -68,7 +69,14 @@ class TermsPage extends StatelessWidget {
           const Padding(
               padding: EdgeInsets.all(18),
               child: const Text(
-                "We sincerely invite you to participate in our survey. Before proceeding with the survey, please take a moment to read the following information to understand the purpose of the survey and how we protect your privacy.",
+                "Research Team:",
+                style: TextStyle(color: Colors.white, fontSize: 14),
+                textAlign: TextAlign.left,
+              )),
+          const Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 18, 18),
+              child: const Text(
+                "•	Jing Lu (Jessie)\n•	AI & Humanity Lab, The University of Hong Kong\n•	jinglu0@connect.hku.hk",
                 style: TextStyle(color: Colors.white, fontSize: 14),
                 textAlign: TextAlign.left,
               )),
@@ -92,23 +100,46 @@ class TermsPage extends StatelessWidget {
                   ]),
               child: Column(children: [
                 const TermsAndConditionSubParagraph(
-                    title: "1.条款小标题",
-                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                    title: "Introduction: ",
+                    content:
+                        "You are being invited to participate in a research study. Before you decide whether to participate, it is important for you to understand why the research is being conducted and what it will involve. Please take time to read the following information carefully and discuss it with others if you wish."),
                 const TermsAndConditionSubParagraph(
-                    title: "2.条款小标题",
-                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                    title: "Purpose of the Study: ",
+                    content:
+                        "The purpose of this study is to integrate The Internalized Misogyny Scale (IMS) to initially measure participants' levels of misogyny. Following this, we will employ a conversational AI model trained on a corpus of misogynistic content, supplemented with simple dialogue enhancement techniques. This AI chat assistant will provide advice to individuals within gender-divisive conversations."),
                 const TermsAndConditionSubParagraph(
-                    title: "3.条款小标题",
-                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                    title: "What Will Happen During the Study: ",
+                    content:
+                        "If you agree to participate, you will be asked to: \n1.	Complete The Internalized Misogyny Scale (IMS) questionnaire to measure your levels of misogyny.\n2.	Engage in conversations using a conversational AI model that provides advice within gender-divisive contexts.\n3.	Provide feedback on your experience with the AI chat assistant. The study will take approximately [insert duration] to complete and will take place [insert location or online]."),
                 const TermsAndConditionSubParagraph(
-                    title: "4.条款小标题",
-                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                    title: "Risks and Benefits: ",
+                    content:
+                        "There are minimal risks associated with this study, such as discomfort during conversations about sensitive topics. However, the potential benefits include contributing to the development of tools that can effectively address misogyny in online and offline conversations, promoting more respectful and inclusive dialogue."),
                 const TermsAndConditionSubParagraph(
-                    title: "4.条款小标题",
-                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                    title: "Confidentiality: ",
+                    content:
+                        "All information collected in this study will be not be disclosed. Your identity will not be disclosed in any publications or reports resulting from this research. Data will be stored securely and only the research team will have access to it."),
                 const TermsAndConditionSubParagraph(
-                    title: "4.条款小标题",
-                    content: "这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容...这里是条款的具体内容..."),
+                    title: "Voluntary Participation: ",
+                    content:
+                        "Participation in this study is voluntary. You are free to withdraw at any time, without giving a reason, and without any negative consequences. If you decide to withdraw, any data collected from you up to that point will be destroyed and not used in the study."),
+                const TermsAndConditionSubParagraph(
+                    title: "Questions and Concerns: ",
+                    content: "If you have any questions or concerns about the study, please feel free to contact [Researcher's Name] at [contact information]."),
+                const TermsAndConditionSubParagraph(
+                    title: "Consent: ",
+                    content: "By participating in this study, you acknowledge that you have read and understood the information provided above and that you voluntarily agree to participate."),
+                const TermsAndConditionSubParagraph(
+                    title: "Contact for Complaints:  ",
+                    content: "If you have any complaints or concerns about this study, you may contact [Institutional Review Board or Ethics Committee] at [contact information]."),
+                Container(
+                  padding: EdgeInsets.fromLTRB(18, 4, 8, 4),
+                  child: const Text(
+                    "Thank you for considering participation in this study. Your contribution is highly valued and will help further our understanding of addressing misogyny through innovative AI solutions.",
+                    style: const TextStyle(color: Colors.white, fontSize: 14),
+                    textAlign: TextAlign.left,
+                  ),
+                ),
                 const SizedBox(height: 30),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
